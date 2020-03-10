@@ -1,0 +1,263 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 1;
+
+/*xmin 0;
+xmax 0.05;
+ymin 0;
+ymax 0.001;//0.5;
+zmin 0;
+zmax 0.4;//0.001;
+
+
+vertices
+(
+    ($xmin  $ymin  $zmin) //0
+    ($xmax  $ymin  $zmin) //1
+    ($xmax  $ymax  $zmin) //2
+    ($xmin  $ymax  $zmin) //3
+    ($xmin  $ymin  $zmax) //4
+    ($xmax  $ymin  $zmax) //5
+    ($xmax  $ymax  $zmax) //6
+    ($xmin  $ymax  $zmax) //7
+
+
+
+);
+*/
+
+
+vertices
+(
+//htf region
+
+	(0 0 0)		//0
+	(0.01 0 0)	//1
+	(0.01 0.04 0)	//2
+	(0 0.04 0)	//3
+	(0 0 0.001)	//4
+	(0.01 0 0.001)	//5
+	(0.01 0.04 0.001) //6	
+	(0 0.04 0.001)	//7
+
+//pipe region
+	
+	(0.012 0 0)	//8
+	(0.012 0.04 0)	//9
+	(0.012 0 0.001)	//10
+	(0.012 0.04 0.001) //11
+
+//pcm region
+
+	(0.05 0 0)	//12
+	(0.05 0.04 0)	//13
+	(0.05 0 0.001)	//14
+	(0.05 0.04 0.001) //15
+
+
+	
+);
+	
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (24 3 1) simpleGrading (1 1 1)
+    hex (1 8 9 2 5 10 11 6) (24 3 1) simpleGrading (1 1 1)
+    hex (8 12 13 9 10 14 15 11) (24 3 1) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+
+//htf region
+	symWall
+	{
+		type symmetryPlane;
+		
+		faces
+		(
+			(0 3 7 4)
+		);
+	}
+
+	inlet
+	{
+		type inlet;
+			
+		faces
+		(
+			(7 3 2 6)
+		);
+	}		
+
+	outlet
+	{
+		type outlet;
+
+		faces
+		(
+			(4 0 1 5)
+		);
+	}
+
+	/*htfToPipe
+	{
+		type wall;
+	
+		faces
+		(
+			(1 2 5 6)
+		);
+	}*/
+
+	htfFront
+	{
+		type empty;
+	
+		faces
+		(
+			(4 7 6 5)
+		);
+	}
+
+	htfBack
+	{
+		type empty;
+	
+		faces
+		(
+			(0 3 2 1)
+		);
+	}
+
+//pipe region
+
+	pipeTop
+	{
+		type wall;
+		
+		faces
+		(
+			(6 2 9 11)
+		);
+	}
+
+	pipeBot
+	{
+		type wall;
+		
+		faces
+		(
+			(5 1 8 10)
+		);
+	}
+
+	/*pipeToPcm
+	{
+		type wall;
+		
+		faces
+		(
+			(10 11 9 8)
+		);
+	}*/
+
+	pipeFront
+	{
+		type empty;
+		
+		faces
+		(
+			(5 6 11 10)
+		);
+	}
+
+	pipeBack
+	{
+		type empty;
+	
+		faces
+		(
+			(1 8 9 2)
+		);
+	}
+
+//pcm region
+
+	pcmTop
+	{
+		type wall;
+	
+		faces
+		(
+			(11 9 13 15)
+		);
+	}
+
+	pcmBot
+	{
+		type wall;
+		
+		faces
+		(
+			(10 8 12 14)
+		);
+	}
+
+	pcmFront
+	{
+		type empty;
+	
+		faces
+		(
+			(10 11 15 14)
+		);
+	}
+
+	pcmBack
+	{
+		type empty;
+	
+		faces
+		(
+			(8 9 13 12)
+		);
+	}
+
+	pcmRight
+	{
+		type wall;
+		
+		faces
+		(
+			(14 15 13 12)
+		);
+	}
+
+
+
+
+);
+
+mergePatchPairs
+(
+);
+
+// ************************************************************************* //

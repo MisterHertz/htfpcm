@@ -1,0 +1,131 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+//htf region
+
+	{
+		name    htfCellSet;
+    		type    cellSet;
+    		action  new;
+    		source  boxToCell;
+    		sourceInfo
+    		{
+      			box (0 0 0) (0.08 0.4 0.001);
+    		}
+  	}
+  
+	/*{
+    		name    htfCellSet;
+    		type    cellSet;
+    		action  add;
+    		source  boxToCell;
+    		sourceInfo
+    		{
+			box (0 0 0) (0.01 0.4 0.001);
+   		}
+  	}*/
+
+	{
+		name	htf;
+		type	cellZoneSet;
+		action	new;
+		source	setToCellZone;
+		sourceInfo
+		{
+			set htfCellSet;
+		}
+	}
+
+//pipe region
+
+	{
+		name	pipeCellSet;
+		type	cellSet;
+		action	new;
+		source	boxToCell;
+		sourceInfo
+		{
+			box (0.08 0 0) (0.1 0.4 0.001);
+		}
+	}
+
+	/*{
+		name 	pipeCellSet;
+		type	cellSet;
+		action	add;
+		source	boxToCell;
+		sourceInfo
+		{
+			box (0.01 0 0) (0.012 0.4 0.001);
+		}
+	}*/
+
+	{
+		name 	pipe;
+		type	cellZoneSet;
+		action	new;
+		source	setToCellZone;
+		sourceInfo
+		{
+			set pipeCellSet;
+		}
+	}
+
+//pcm region
+
+	{
+		name	pcmCellSet;
+		type	cellSet;
+		action	new;
+		source	boxToCell;
+		sourceInfo	
+		{
+			box (0.1 0 0) (0.2 0.4 0.001);
+		}
+	}
+
+	/*{
+		name	pcmCellSet;
+		type	cellSet;
+		action	add;//new;
+		source	boxToCell;
+		sourceInfo
+		{
+			box (0.012 0 0) (0.05 0.4 0.001);
+		}
+	}*/
+
+	{
+		name pcm;
+		type	cellZoneSet;
+		action	new;
+		source	setToCellZone;
+		sourceInfo
+		{
+			set	pcmCellSet;
+		}
+
+	}
+
+
+	
+
+);
+
+
+// ************************************************************************* //	

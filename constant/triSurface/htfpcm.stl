@@ -1,0 +1,256 @@
+solid htfFront
+  facet normal 0 -1 0
+    outer loop
+      vertex 0.01 0 0
+      vertex 0.01 0 0.4
+      vertex 0 0 0
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex 0.01 0 0.4
+      vertex -7.28584e-17 0 0.4
+      vertex 0 0 0
+    endloop
+  endfacet
+endsolid htfFront
+solid htfBack
+  facet normal 0 1 0
+    outer loop
+      vertex 0.01 0.001 0.4
+      vertex 0.01 0.001 0
+      vertex -7.28584e-17 0.001 0.4
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 0.01 0.001 0
+      vertex 0 0.001 0
+      vertex -7.28584e-17 0.001 0.4
+    endloop
+  endfacet
+endsolid htfBack
+solid inlet
+  facet normal 0 0 1
+    outer loop
+      vertex 0.01 0.001 0.4
+      vertex -7.28584e-17 0.001 0.4
+      vertex 0.01 0 0.4
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex -7.28584e-17 0.001 0.4
+      vertex -7.28584e-17 0 0.4
+      vertex 0.01 0 0.4
+    endloop
+  endfacet
+endsolid inlet
+solid outlet
+  facet normal 0 0 -1
+    outer loop
+      vertex 0 0.001 0
+      vertex 0.01 0.001 0
+      vertex 0 0 0
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 0.01 0.001 0
+      vertex 0.01 0 0
+      vertex 0 0 0
+    endloop
+  endfacet
+endsolid outlet
+solid htfSym
+  facet normal -1 0 0
+    outer loop
+      vertex 0 0.001 0.4
+      vertex 0 0.001 0
+      vertex 0 0 0.4
+    endloop
+  endfacet
+  facet normal -1 0 0
+    outer loop
+      vertex 0 0.001 0
+      vertex 0 0 0
+      vertex 0 0 0.4
+    endloop
+  endfacet
+endsolid htfSym
+solid htfToPipe
+  facet normal 1 0 0
+    outer loop
+      vertex 0.01 0.001 0
+      vertex 0.01 0.001 0.4
+      vertex 0.01 0 0
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 0.01 0.001 0.4
+      vertex 0.01 0 0.4
+      vertex 0.01 0 0
+    endloop
+  endfacet
+endsolid htfToPipe
+solid pipeFront
+  facet normal 0 -1 0
+    outer loop
+      vertex 0.012 0 0
+      vertex 0.012 0 0.4
+      vertex 0.01 0 0
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex 0.012 0 0.4
+      vertex 0.01 0 0.4
+      vertex 0.01 0 0
+    endloop
+  endfacet
+endsolid pipeFront
+solid pipeBack
+  facet normal 0 1 0
+    outer loop
+      vertex 0.012 0.001 0.4
+      vertex 0.012 0.001 0
+      vertex 0.01 0.001 0.4
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 0.012 0.001 0
+      vertex 0.01 0.001 0
+      vertex 0.01 0.001 0.4
+    endloop
+  endfacet
+endsolid pipeBack
+solid pipeTop
+  facet normal 0 0 1
+    outer loop
+      vertex 0.012 0.001 0.4
+      vertex 0.01 0.001 0.4
+      vertex 0.012 0 0.4
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 0.01 0.001 0.4
+      vertex 0.01 0 0.4
+      vertex 0.012 0 0.4
+    endloop
+  endfacet
+endsolid pipeTop
+solid pipeBot
+  facet normal 0 0 -1
+    outer loop
+      vertex 0.01 0.001 0
+      vertex 0.012 0.001 0
+      vertex 0.01 0 0
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 0.012 0.001 0
+      vertex 0.012 0 0
+      vertex 0.01 0 0
+    endloop
+  endfacet
+endsolid pipeBot
+solid pipeToPcm
+  facet normal 1 0 0
+    outer loop
+      vertex 0.012 0.001 0
+      vertex 0.012 0.001 0.4
+      vertex 0.012 0 0
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 0.012 0.001 0.4
+      vertex 0.012 0 0.4
+      vertex 0.012 0 0
+    endloop
+  endfacet
+endsolid pipeToPcm
+solid pcmFront
+  facet normal 0 -1 0
+    outer loop
+      vertex 0.05 0 0
+      vertex 0.05 0 0.4
+      vertex 0.012 0 0
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex 0.05 0 0.4
+      vertex 0.012 0 0.4
+      vertex 0.012 0 0
+    endloop
+  endfacet
+endsolid pcmFront
+solid pcmBack
+  facet normal 0 1 0
+    outer loop
+      vertex 0.05 0.001 0.4
+      vertex 0.05 0.001 0
+      vertex 0.012 0.001 0.4
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex 0.05 0.001 0
+      vertex 0.012 0.001 0
+      vertex 0.012 0.001 0.4
+    endloop
+  endfacet
+endsolid pcmBack
+solid pcmTop
+  facet normal 0 0 1
+    outer loop
+      vertex 0.05 0.001 0.4
+      vertex 0.012 0.001 0.4
+      vertex 0.05 0 0.4
+    endloop
+  endfacet
+  facet normal 0 0 1
+    outer loop
+      vertex 0.012 0.001 0.4
+      vertex 0.012 0 0.4
+      vertex 0.05 0 0.4
+    endloop
+  endfacet
+endsolid pcmTop
+solid pcmBot
+  facet normal 0 0 -1
+    outer loop
+      vertex 0.012 0.001 0
+      vertex 0.05 0.001 0
+      vertex 0.012 0 0
+    endloop
+  endfacet
+  facet normal 0 0 -1
+    outer loop
+      vertex 0.05 0.001 0
+      vertex 0.05 0 0
+      vertex 0.012 0 0
+    endloop
+  endfacet
+endsolid pcmBot
+solid pcmRight
+  facet normal 1 0 0
+    outer loop
+      vertex 0.05 0.001 0
+      vertex 0.05 0.001 0.4
+      vertex 0.05 0 0
+    endloop
+  endfacet
+  facet normal 1 0 0
+    outer loop
+      vertex 0.05 0.001 0.4
+      vertex 0.05 0 0.4
+      vertex 0.05 0 0
+    endloop
+  endfacet
+endsolid pcmRight

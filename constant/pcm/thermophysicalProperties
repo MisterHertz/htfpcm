@@ -1,0 +1,90 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      thermophysicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+//paraffin
+
+/*thermoType
+{
+    type            heRhoThermo;//heSolidThermo;
+    mixture         pureMixture;
+    transport       constIso;
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+mixture
+{
+    specie
+    {
+        molWeight   353.77;
+    }
+
+    transport
+    {
+        //kappa   0.24;//80;
+	mu          1.8096e-3;
+        Pr          0.017;
+    }
+
+    thermodynamics
+    {
+        Hf      0;
+        Cp      2890;//450;
+	//CpRef 	0;
+    }
+
+    equationOfState
+    {
+        rho     900;
+    }
+}*/
+
+thermoType
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+mixture
+{
+    specie
+    {
+        molWeight       353.77;
+    }
+    equationOfState
+    {
+        rho             900;
+    }
+    thermodynamics
+    {
+        Cp      	2890;
+        Hf              0;
+    }
+    transport
+    {
+       mu          7e-3;//1.8096e-3;
+       Pr          80.92;//0.017; // kappa = 0.25; Pr = cp*mu/kappa
+    }
+}
+
+// ************************************************************************* //
